@@ -66,6 +66,8 @@ module WscSdk
       # Other RTSP Encoder
       OTHER_RTSP             = "other_rtsp"
 
+      # Other WebRTC Encoder
+      OTHER_WEBRTC           = "other_webrtc"
     end
   end
 end
