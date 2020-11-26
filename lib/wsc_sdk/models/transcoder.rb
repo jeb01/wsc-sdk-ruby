@@ -86,6 +86,16 @@ module WscSdk
         @outputs ||= WscSdk::Endpoints::Outputs.new(endpoint.client, parent_path: endpoint.find_path(self.primary_key))
       end
 
+      # Uptimes endpoint for uptimes associated with the transcoder.
+      #
+      # @return [WscSdk::Endpoints::Uptimes]
+      #   An instance of the Uptimes endpoint, with the results limited to the
+      #   uptimes associated with this trancoder.
+      #
+      def uptimes
+        @uptimes ||= WscSdk::Endpoints::Uptimes.new(endpoint.client, parent_path: endpoint.find_path(self.primary_key))
+      end
+
       # Returns a URL where the current thumbnail image for the transcoder can be
       # retrieved
       #
