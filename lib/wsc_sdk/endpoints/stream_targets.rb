@@ -11,7 +11,7 @@ module WscSdk
       model_class WscSdk::Models::StreamTarget
 
       # Only allow the list action to be enabled.
-      actions include: :list
+      actions include: [:list, :build]
 
       # Access the /stream_targets/wowza endpoints
       #
