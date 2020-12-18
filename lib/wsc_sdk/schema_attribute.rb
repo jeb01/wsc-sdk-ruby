@@ -270,7 +270,7 @@ module WscSdk
     #
     def value_or_default(model)
       raise ArugumentError.new("The provided #{model.class.name} model does not have the #{self.name} attribute configured") unless model.has_attribute?(self.name)
-      model.attributes[self.name] || default_value(model)
+      model.attributes[self.name].nil? ? default_value(model) : model.attributes[self.name]
     end
 
     # Determine if the attribute is required.
