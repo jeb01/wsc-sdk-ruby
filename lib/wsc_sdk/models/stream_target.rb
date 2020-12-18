@@ -24,6 +24,24 @@ module WscSdk
       def to_s
         "id: #{id} | type: #{type} | #{name}"
       end
+
+      #---------------------------------------------------------------------------
+      #    _                   _      _   _
+      #   /_\   ______ ___  __(_)__ _| |_(_)___ _ _  ___
+      #  / _ \ (_-<_-</ _ \/ _| / _` |  _| / _ \ ' \(_-<
+      # /_/ \_\/__/__/\___/\__|_\__,_|\__|_\___/_||_/__/
+      #
+      #---------------------------------------------------------------------------
+
+      # Properties endpoint for properties associated with the stream target.
+      #
+      # @return [WscSdk::Endpoints::StreamTargetProperty]
+      #   An instance of the StreamTargetProperty endpoint, with the results limited to the
+      #   properties associated with this stream target.
+      #
+      def properties
+        @properties ||= WscSdk::Endpoints::StreamTargetProperties.new(endpoint.client, parent_path: endpoint.find_path(self.primary_key))
+      end
     end
   end
 end
