@@ -170,7 +170,7 @@ module WscSdk
       payload   = model_object.build_payload
       return WscSdk::Errors.invalid_attributes(self) unless model_object.valid?
 
-      response  = client.put(update_path(model_object.primary_key), body: payload)
+      response  = client.patch(update_path(model_object.primary_key), body: payload)
       if (200..299).include?(response.code)
         return transform_model(response.body, origin_model: model_object)
       else
