@@ -32,10 +32,12 @@ module WscSdk
       attribute :delivery_method,                   :string,    required: true,     validate: Enums::DeliveryMethod.values,     default: Enums::DeliveryMethod::PUSH
       attribute :delivery_type,                     :string,    required: :delivery_type_is_required?,  validate: Enums::DeliveryType.values, default: Enums::DeliveryType::SINGLE_BITRATE
       attribute :recording,                         :boolean
+      attribute :low_latency,                       :boolean
       attribute :closed_caption_type,               :string,                        validate: Enums::ClosedCaptionType.values
       attribute :target_delivery_protocol,          :string,                        default: Enums::TargetDeliveryProtocol::HLS_HTTPS
       attribute :use_stream_source,                 :boolean
       attribute :stream_source_id,                  :string,    access: :read
+      attribute :stream_targets,                    :array,     access: :read
       attribute :aspect_ratio_width,                :integer,   required: true
       attribute :aspect_ratio_height,               :integer,   required: true
       attribute :source_url,                        :string,    access: :write,     required: :source_url_is_required?,         default: :default_source_url
